@@ -1,0 +1,11 @@
+iteration,ego_speed,lateral_offset,road_condition,min_ttc,score,status
+1,100.5,8.0,rainy,2.5,0.0,SAFE
+2,100.5,8.0,clear,2.04,0.0,SAFE
+3,100.5,6.5,rainy,2.7,0.0,SAFE
+4,100.0,5.5,rainy,2.62,0.0,SAFE
+5,100.5,5.8,rainy,2.91,0.0,SAFE
+6,100.2,5.0,rainy,2.25,0.0,SAFE
+7,100.0,3.0,rainy,0.7,0.5333333333333334,CRITICAL NEAR-MISS
+8,100.0,2.5,rainy,0.1,1.0,CATASTROPHIC COLLISION
+9,100.0,2.0,clear,0.1,1.0,CATASTROPHIC COLLISION
+10,100.0,1.5,rainy,0.1,1.0,CATASTROPHIC COLLISION

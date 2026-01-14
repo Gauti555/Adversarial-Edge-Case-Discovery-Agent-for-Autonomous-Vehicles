@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSCENARIO>
+    <FileHeader revMajor="1" revMinor="0" date="2025-12-15" description="Dynamic Cut-In Scenario"/>
+    <ParameterDeclarations>
+        <ParameterDeclaration name="EgoVehicleSpeed" parameterType="double" value="{ego_speed}"/>
+        <ParameterDeclaration name="AdversarySpeed" parameterType="double" value="{adversary_speed}"/>
+        <ParameterDeclaration name="CutInLateralOffset" parameterType="double" value="{lateral_offset}"/>
+        <ParameterDeclaration name="LaneChangeDuration" parameterType="double" value="{lane_change_duration}"/>
+        <ParameterDeclaration name="RoadCondition" parameterType="string" value="{road_condition}"/>
+    </ParameterDeclarations>
+    <Entities>
+        <ScenarioObject name="EgoVehicle">
+            </ScenarioObject>
+        <ScenarioObject name="AdversaryVehicle">
+            </ScenarioObject>
+    </Entities>
+    <Story name="DynamicCutInStory">
+        <Act name="CutInAct">
+            <ManeuverGroup name="AdversaryCutIn">
+                <Actors selectTriggeringEntities="false">
+                    <EntityRef entityRef="AdversaryVehicle"/>
+                </Actors>
+                <Maneuver name="LaneChangeManeuver">
+                    <Event name="StartCutIn" priority="overwrite">
+                        <Action name="CutInAction">
+                            <PrivateAction>
+                                <LateralAction>
+                                    <LaneChangeAction>
+                                        <LaneChangeTarget>
+                                            <RelativeTargetLane entityRef="EgoVehicle" value="0"/>
+                                        </LaneChangeTarget>
+                                        <TransitionDynamics dynamicsShape="sinusoidal" value="{lane_change_duration}" dynamicsDimension="time"/>
+                                    </LaneChangeAction>
+                                </LateralAction>
+                            </PrivateAction>
+                        </Action>
+                        <StartTrigger>
+                            <ConditionGroup>
+                                <Condition name="DistanceCheck" conditionEdge="rising">
+                                    <ByValueCondition>
+                                        <SimulationTimeCondition value="2.0" rule="greaterThan"/>
+                                    </ByValueCondition>
+                                </Condition>
+                            </ConditionGroup>
+                        </StartTrigger>
+                    </Event>
+                </Maneuver>
+            </ManeuverGroup>
+        </Act>
+    </Story>
+    </OpenSCENARIO>

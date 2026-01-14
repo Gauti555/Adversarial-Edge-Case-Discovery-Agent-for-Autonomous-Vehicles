@@ -1,0 +1,6 @@
+openai
+pydantic
+numpy
+rich
+python-dotenv
+# carla  <-- Note: CARLA python API is usually installed manually or via .egg file, but we list it here for reference.
