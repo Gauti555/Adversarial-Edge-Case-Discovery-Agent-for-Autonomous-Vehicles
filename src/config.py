@@ -56,7 +56,6 @@ class Config:
     # 🤖 AI / LLM Configuration
     # ==============================
     # Replace with your actual API Key or set it in your OS environment variables
-    #OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "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")
     
     # Model to use (gpt-4o is recommended for complex logic, gpt-3.5-turbo for cost saving)
     #MODEL_NAME = "gpt-5.1" 
